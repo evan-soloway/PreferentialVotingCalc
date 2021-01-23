@@ -4,5 +4,6 @@
 - choices must be in row and rank in column; NOT vice versa
 - number of ranks and number of choices must be equal
 - program accepts response form of any length
+- columns of rank must be listed in ascending order of preferance from left to right in csv file
 
 this is super basic i wrote this because *yeet*
