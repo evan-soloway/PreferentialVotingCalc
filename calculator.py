@@ -1,10 +1,13 @@
 
   
-def choiceConstruction(results):
-
+def choiceConstruction():
+     
      choice = []
 
-     for lines in range(1, len(results)):
+     inFile = open("form.csv", 'r')
+     results = inFile.readlines()
+
+     for lines in range(1, len(results)): # iterating over each response
           
           line = (results[lines].rstrip("\n")).split(",")
           
@@ -17,9 +20,11 @@ def choiceConstruction(results):
           
           choice.insert(0, tempDict)
 
-     return choice
+     choice = ranking(results, choice)
 
-def ranking(results, choice):
+     return choice, len(results)-1;
+
+def ranking(results, choice): # cannot be called before choiceConstruction
 
      for lines in range(1, len(results)): # iterating over each response
           
@@ -35,6 +40,15 @@ def ranking(results, choice):
                         title["rating"] += choices
 
      return choice
+     
+def verbose(choice, numResponses):
+
+     print()# newline
+     
+     for titles in choice:
+          print(titles["title"], "received", titles["rating"], "points")
+
+     print("\n" + "There were", numResponses, "responses")
 
 def ratingSort(dicts):
      return dicts['rating']

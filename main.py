@@ -1,27 +1,13 @@
-from calculator import *
-from verbose import verbose
+from Program import Program
 
-def main(verbose):
+perameter = input("Perameters: ")
+print()
 
-
-     inFile = open("form.csv", 'r')
-
-     results = inFile.readlines()
-     choice = choiceConstruction(results)
-     choice = ranking(results, choice)
-
-     choice.sort(reverse = True, key = ratingSort)
-
-     counter = 1
+try:
+     program = Program(perameter)
+     program.main()
      
-     for titles in choice:
-          print("#%d" % counter + ":", titles["title"])
-          counter+=1
+except Exception as error:
+     print(error)
 
-     print("\nWINNER:", choice[0]["title"])
 
-     if(verbose):
-          verbose()
-     
-     inFile.close()
-          
