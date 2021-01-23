@@ -1,3 +1,5 @@
+
+  
 def choiceConstruction(results):
 
      choice = []
@@ -36,26 +38,3 @@ def ranking(results, choice):
 
 def ratingSort(dicts):
      return dicts['rating']
-
-
-def main():
-
-
-     inFile = open("form.csv", 'r')
-
-     results = inFile.readlines()
-     choice = choiceConstruction(results)
-     choice = ranking(results, choice)
-
-     choice.sort(reverse = True, key = ratingSort)
-
-     counter = 1
-     
-     for titles in choice:
-          print("#%d" % counter + ":", titles["title"])
-          counter+=1
-
-     print("\nWINNER:", choice[0]["title"])
-          
-
-main()
