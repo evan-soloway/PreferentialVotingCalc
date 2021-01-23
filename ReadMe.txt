@@ -1,0 +1,3 @@
+- program hardwired to exclude 1st row and column of csv form
+- program requires form to be titles "form.csv" and must be comma-delimited csv
+- program accepts response form of any length
